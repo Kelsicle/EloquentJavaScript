@@ -64,4 +64,3 @@ const  reverseArrayInPlace = (array) => {
 
 console.log(reverseArray([1,2,3,4,5]));
 
-// Testing that i can make changes in Git

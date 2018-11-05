@@ -81,22 +81,40 @@ const reverseArrayInPlace = (array) => {
 //     return array;
 // }
 
-const arrayToList = (array, val) => {
-    if (array.length>1){
-        let list = {
-            value: val,
-            rest: arrayToList(array.slice(1), val++)
-        }
-        return list;
+// const arrayToList = (array, val) => {
+//     if (array.length>1){
+//         let list = {
+//             value: val,
+//             rest: arrayToList(array.slice(1), val++)
+//         }
+//         return list;
+//     }
+//     else {
+//         let list = {
+//             value: val
+//         }
+//     }
+// }
+
+// SOLUTION FROM SOURCE
+
+function arrayToList(array) {
+    let list = null;
+    for (let i = array.length - 1; i >= 0; i--) {
+        list = {value: array[i], rest: list};
     }
-    else {
-        let list = {
-            value: val
-        }
+    return list;
+}
+
+function listToArray(list) {
+    let array = [];
+    for (let node = list; node; node = node.rest) {
+        array.push(node.value);
     }
+    return array;
 }
 
 console.log(reverseArray([1, 2, 3, 4, 5]));
 console.log(reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
-console.log(arrayToList([1,2,3], 1));
+console.log(arrayToList([1,2,3]));
 

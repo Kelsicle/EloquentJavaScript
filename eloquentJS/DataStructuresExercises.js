@@ -114,7 +114,26 @@ function listToArray(list) {
     return array;
 }
 
+const prepend = (value, list) => {
+    return {value, rest: list};
+};
+
+const nth = (list, n) => {
+    if(!list) return undefined;
+    else if (n == 0) return list.value;
+    else return nth(list.rest, n-1);3
+};
+
+// FROM SOLUTIONS
+
+// function nth(list, n) {
+//     if (!list) return undefined;
+//     else if (n == 0) return list.value;
+//     else return nth(list.rest, n - 1);
+// }
+
 console.log(reverseArray([1, 2, 3, 4, 5]));
 console.log(reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
 console.log(arrayToList([1,2,3]));
+console.log(nth(arrayToList([1,2,3,4,5]),4));
 

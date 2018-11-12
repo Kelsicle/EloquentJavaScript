@@ -136,4 +136,5 @@ console.log(reverseArray([1, 2, 3, 4, 5]));
 console.log(reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
 console.log(arrayToList([1,2,3]));
 console.log(nth(arrayToList([1,2,3,4,5]),4));
+console.log(prepend(4,arrayToList([1,2,3,4,5])));
 

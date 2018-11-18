@@ -13,6 +13,8 @@ const loop = (start, test, update, body) => {
     }
 };
 
+// Every
+
 const every = (array, predicate) => {
     for(let element of array){
         if(!predicate(element)) return false

@@ -1,7 +1,7 @@
 
 //Objects Chapter Exercises
 
-//Vector Class
+// ****** Vector Class ******
 
 class Vec {
     constructor(x, y){
@@ -43,7 +43,7 @@ console.log(new Vec(1, 2).subtract(new Vec(2, 3)));
 console.log(new Vec(3, 4).length);
 // → 5
 
-// Group class
+// ****** Group class ******
 
 class Group{
     constructor(){
@@ -70,6 +70,10 @@ class Group{
         }
         return group;
     }
+
+    [Symbol.iterator]() {
+        return new GroupIterator(this);
+    }
 }
 
 let group = Group.from([10, 20]);
@@ -81,3 +85,34 @@ group.add(10);
 group.delete(10);
 console.log(group.has(10));
 // → false
+
+
+// ****** Group Iterator ******
+class GroupIterator{
+    constructor(group){
+        this.index = 0;
+        this.group = group;
+    }
+
+    next(){
+        if(this.index >= this.group.list.length) {
+            return {done: true};
+        }
+        else {
+            let result = {value: this.group.list[this.index], done: false};
+            this.index++;
+            return result;
+        }
+    }
+}
+
+for (let value of Group.from(["a", "b", "c"])) {
+    console.log(value);
+}
+
+
+let map = {one: true, two: true, hasOwnProperty: true};
+
+// Fix this call
+console.log(map.hasOwnProperty("one"));
+// → true
